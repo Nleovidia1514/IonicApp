@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { Image } from './../Image';
+import { ImageService } from './../services/image.service';
+import { environment } from './../../environments/environment';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -7,6 +11,16 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  url = environment.url;
+
+  images: Image[];
+  constructor(private imgService: ImageService) {}
+
+  ngOnInit() {
+    this.imgService.getImages().subscribe(data => {
+      console.log(data);
+      this.images = data;
+    })
+  }
 
 }

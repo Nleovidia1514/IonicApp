@@ -1,0 +1,33 @@
+<ion-header class="header">
+  <ion-toolbar color="primary">
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content">
+  <div class="background">
+    <div class="main-content">
+      <div class="ion-padding">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+          <ion-item>
+            <ion-label position="floating" color="ion-color-primary">Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="ion-color-primary">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div class="auth-errors" *ngIf="invalidPassEm">
+            <ion-icon name="information-circle-outline">Invalid password/username</ion-icon>
+          </div>
+          
+          <ion-button type="submit" [disabled]="!loginForm.valid || loading" expand="full">Log in</ion-button>
+          <ion-spinner *ngIf="loading" class="ion-justify-center"></ion-spinner>
+          <a expand="full" routerLink="/recovery">Forgot your password?</a>
+          <a routerLink="/register">Don't have an account yet?</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

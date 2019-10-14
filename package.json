@@ -2,6 +2,7 @@
   "name": "myApp",
   "version": "0.0.1",
   "author": "Ionic Framework",
+  "proxy": "http://localhost:3001",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
