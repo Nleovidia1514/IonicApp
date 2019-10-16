@@ -13,6 +13,8 @@ export class Tab1Page {
 
   url = environment.url;
 
+  liked = true;
+
   images: Image[];
   constructor(private imgService: ImageService) {}
 
@@ -21,6 +23,16 @@ export class Tab1Page {
       console.log(data);
       this.images = data;
     })
+  }
+
+  giveLike = (image: Image) => {
+    if (this.liked) {
+      image.likes = image.likes+1;
+      this.imgService.sendLike(image).subscribe(data => {
+        console.log(data);
+      });
+    }
+    
   }
 
 }

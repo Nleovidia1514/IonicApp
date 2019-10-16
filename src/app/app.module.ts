@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { UsernameValidator } from './validators/username.validator';
+import { EmailValidator } from './validators/email.validator';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,8 @@ import { UsernameValidator } from './validators/username.validator';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    UsernameValidator
+    UsernameValidator,
+    EmailValidator
   ],
   bootstrap: [AppComponent]
 })

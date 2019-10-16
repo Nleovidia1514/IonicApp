@@ -1,23 +1,59 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
+      <ion-icon name="logo-freebsd-devil"></ion-icon>
       History
     </ion-title>
-    <ion-button routerLink="/upload" class="upload">+</ion-button>
   </ion-toolbar>
 </ion-header>
-<ion-content color="secondary">
-  <ion-card  *ngFor="let image of images">
-    <ion-card-header>
-      <div class="card-header">
-        <ion-avatar>
-            <img width="20%" height="100%" src="{{url}}{{ image.uploader[0].profileImg }}">
-        </ion-avatar>
-          <h2>{{ image.uploader[0].username }}</h2>
-      </div>
-      
-    </ion-card-header>
-    <img src="{{ url }}{{ image.path }}">
-    <span>{{ image.created_at | date }}</span>   
+<ion-content color="secondary" class="cards-bg social-cards">
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed" edge>
+    <ion-fab-button color="red">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card *ngFor="let image of images" color="primary">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{url}}{{image.uploader[0].profileImg}}">
+      </ion-avatar>
+      <h2 class="ion-padding">{{image.title}}</h2>
+    </ion-item>
+
+    <img src="{{url}}{{image.path}}">
+
+    <ion-card-content class="of-visible">
+      <strong>{{image.uploader[0].username}}</strong>
+      <p color="description">{{image.description}}</p>
+    </ion-card-content>
+
+
+    <ion-row class="align-items-center">
+      <ion-col>
+        <ion-button color="dark" clear small icon-start (click)="giveLike(image)" [className]="liked ? 'liked' : null">
+
+          <ion-icon name='heart'></ion-icon>
+          <ion-label>Likes</ion-label>
+          <ion-badge color="danger" slot="end">{{ image.likes.length }}</ion-badge>
+
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="dark" clear small icon-start>
+
+          <ion-icon name='text'></ion-icon>
+          <ion-label>Comments</ion-label>
+          <ion-badge color="secondary" slot="end">{{ image.likes.length }}</ion-badge>
+        </ion-button>
+      </ion-col>
+      <ion-col class="text-center" size="2">
+        <p>11h ago
+        </p>
+      </ion-col>
+    </ion-row>
+
   </ion-card>
+
 </ion-content>

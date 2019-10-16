@@ -14,7 +14,8 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   loading: boolean = false;
   invalidPassEm: boolean = false;
-
+  backgroundImage: string;
+  
   constructor(
     private auth: AuthService, 
     private router: Router,
@@ -29,6 +30,12 @@ export class LoginPage implements OnInit {
       ])),
       password: new FormControl('', Validators.required)
     })
+    let backgroundImageArray = [
+      './../../../assets/img/background-1.jpg',
+      './../../../assets/img/background-2.jpg',
+      './../../../assets/img/background-3.jpg'
+    ];
+    this.backgroundImage = backgroundImageArray[Math.floor(Math.random()*3)]
   }
 
   onSubmit = (user) => {

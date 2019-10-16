@@ -27,4 +27,8 @@ export class ImageService {
     );
   }
 
+  sendLike = (image: Image): Observable<any> => {
+    return this.http.post(this.url + '/images?id='+image._id, null, this.httpOptions);
+  }
+
 }

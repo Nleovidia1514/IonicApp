@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content class="form-content">
-  <div class="background">
+  <div class="background" [style.background]="'url('+ backgroundImage +')'">
     <div class="main-content">
       <div class="ion-padding">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
