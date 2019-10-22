@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+interface Ship {
+  id: number
+}
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -7,6 +11,19 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  ships: Ship[] = [];
+  idCounter: number = 0;
+  shipsInterval;
+
+  constructor() {
+    this.shipsInterval = setInterval(() => {
+      this.ships.push({ id: this.idCounter });
+      this.idCounter++;
+    }, 5000);
+  }
+
+  killShip = (ship) => {                                                                                                      
+    setTimeout(() => this.ships.splice(this.ships.findIndex(s => s.id === ship.id), 1), 1200);
+  }
 
 }

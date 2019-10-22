@@ -10,8 +10,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { UsernameValidator } from './validators/username.validator';
-import { EmailValidator } from './validators/email.validator';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,8 +26,6 @@ import { EmailValidator } from './validators/email.validator';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    UsernameValidator,
-    EmailValidator
   ],
   bootstrap: [AppComponent]
 })

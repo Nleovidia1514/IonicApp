@@ -1,10 +1,5 @@
 {
   "name": "myApp",
-  "proxies": 
-    [
-      {"path": "/", "proxyUrl": "http://localhost:3001"}
-    ]
-  ,
   "integrations": {},
   "type": "angular"
 }

@@ -1,3 +1,12 @@
-main {
-    padding: 1rem;
+.game {
+    background-image: url('./../../assets/ocean-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
