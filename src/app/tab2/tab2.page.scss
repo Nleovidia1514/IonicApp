@@ -2,11 +2,138 @@
     background-image: url('./../../assets/ocean-background.jpg');
     background-size: cover;
     background-position: center;
+    background-position-y: -20%;
     background-repeat: no-repeat;
-    position: fixed;
     margin: 0;
     top: 0;
     left: 0;
-    height: 100%;
+    bottom: 20%;
+    height: 80%;
     width: 100%;
+
+    .score {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 0;
+        
+    }
+
+    .cannon {
+        position: absolute;
+        left: 30%;
+        bottom: 0;
+        margin: auto ;
+        width: 150px;
+        height: 200px;
+        justify-self: center;
+        background-image: url('../../assets/sprites/cannon.png');
+        background-repeat: no-repeat;
+        background-size: 800px 600px;
+        z-index: 50;
+
+    }
+
+    .fire {
+        animation:  fireX 0.3s steps(4) infinite, 
+                    fireY 0.6s steps(2) infinite;
+        -moz-animation: fireX 0.3s steps(4) infinite, 
+                        fireY 0.6s steps(2) infinite;
+    }
+}
+
+.dock {
+    background-color: #644900;
+    width: 100%;
+    height: 20%;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+}
+@keyframes fireX {
+    from { background-position-x: 0 }
+    to { background-position-x: -635px }
+}
+
+@-moz-keyframes fireX {
+    from { background-position-x: 0 }
+    to { background-position-x: -635px }
+}
+
+@keyframes fireY {
+    from { background-position-y: 0 } 
+    to { background-position-y: -400px }
+}
+
+@-moz-keyframes fireY {
+    from { background-position-y: 0 } 
+    to { background-position-y: -400px }
+}
+
+ion-content {
+    overflow: hidden;
+}
+
+@media (min-height: 768px) {
+    .game {
+        .cannon {    
+            width: 250px;
+            height: 350px;
+            background-size: 1333px 999.999px;       
+        }
+    
+    }
+
+    @keyframes fireX {
+        from { background-position-x: 0 }
+        to { background-position-x: -1058.33px }
+    }
+    
+    @-moz-keyframes fireX {
+        from { background-position-x: 0 }
+        to { background-position-x: -1058.33px }
+    }
+    
+    @keyframes fireY {
+        from { background-position-y: 0 } 
+        to { background-position-y: -666.66px }
+    }
+    
+    @-moz-keyframes fireY {
+        from { background-position-y: 0 } 
+        to { background-position-y: -666.66px }
+    }
+
+}
+
+@media (min-height: 1200px) {
+    .game {
+        .cannon {          
+            left: 250px;          
+            width: 300px;
+            height: 400px;      
+            background-size: 1600px 1200px;        
+        }  
+    }
+
+    @keyframes fireX {
+        from { background-position-x: 0 }
+        to { background-position-x: -1270px }
+    }
+    
+    @-moz-keyframes fireX {
+        from { background-position-x: 0 }
+        to { background-position-x: -1270px }
+    }
+    
+    @keyframes fireY {
+        from { background-position-y: 0 } 
+        to { background-position-y: -800px }
+    }
+    
+    @-moz-keyframes fireY {
+        from { background-position-y: 0 } 
+        to { background-position-y: -800px }
+    }
+
 }

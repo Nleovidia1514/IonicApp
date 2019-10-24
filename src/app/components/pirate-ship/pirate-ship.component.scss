@@ -1,18 +1,19 @@
 
 .pirate-ship {
-    
     background-repeat: no-repeat;
     background-size: cover;
     width: 80px;
     height: 80px;
     position: absolute;
+    z-index: 100;
 }
-.left {
+.right {
     background-image: url('./../../../assets/sprites/pirate_shipRight.png');
 }
 
-.right {
+.left {
     background-image: url('./../../../assets/sprites/pirate_ship.png');
+    
 }
 
 @keyframes explosionX {
@@ -36,11 +37,77 @@
   .explosion {
     background-image: url('./../../../assets/sprites/explosion80x80.png');
     background-size: initial;
-    animation:  explosionX 1s steps(8) infinite,
-                explosionY 3s steps(6) infinite;
+    animation:  explosionX 0.2s steps(8) infinite,
+                explosionY 1.2s steps(6) infinite;
     -moz-animation:  explosionX 0.2s steps(8) infinite,
                      explosionY 1.2s steps(6) infinite;
     width: 80px;
     height: 80px;
     background-repeat: no-repeat;
   }
+
+  @media (min-height: 768px) and (max-height: 1200px) {
+    .pirate-ship {
+      background-size: 120px 120px;
+      width: 120px;
+      height: 120px;
+  }
+  
+  @keyframes explosionX {
+      from {background-position-x: 0px;}
+      to {background-position-x: -960px;}
+    }    
+    @keyframes explosionY {
+      from {background-position-y: 0px;}
+      to {background-position-y: -720px;}
+    }
+    
+    @-moz-keyframes explosionX {
+      from {background-position-x: 0px;}
+      to {background-position-x: -960px;}
+    }    
+    @-moz-keyframes explosionY {
+      from {background-position-y: 0px;}
+      to {background-position-y: -720px;}
+    }
+    
+    .explosion {    
+      background-size: 960px 720px;   
+      width: 120px;
+      height: 120px;     
+    }
+  }
+
+  @media (min-height: 1200px) {
+    .pirate-ship {
+      background-size: 200px 200px;
+      width: 200px;
+      height: 200px;
+  }
+  
+  @keyframes explosionX {
+      from {background-position-x: 0px;}
+      to {background-position-x: -1600px;}
+    }    
+    @keyframes explosionY {
+      from {background-position-y: 0px;}
+      to {background-position-y: -1200px;}
+    }
+    
+    @-moz-keyframes explosionX {
+      from {background-position-x: 0px;}
+      to {background-position-x: -1600px;}
+    }    
+    @-moz-keyframes explosionY {
+      from {background-position-y: 0px;}
+      to {background-position-y: -1200px;}
+    }
+    
+    .explosion {    
+      background-size: 1600px 1200px;   
+      width: 200px;
+      height: 200px;     
+    }
+  }
+
+  

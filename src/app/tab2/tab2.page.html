@@ -1,8 +1,13 @@
 
 <ion-content>
-  <div class="game">
-    <app-pirate-ship *ngFor="let ship of ships" [ship]="ship" (click)="killShip(ship)">
+  <div class="game" (click)="fireCannon()">
+    <app-pirate-ship *ngFor="let ship of ships" [ship]="ship" (click)="killShip(ship)" [shipsArray]="shipsRef" [id]="ship.id">
     </app-pirate-ship>
-    <ion-fab slot="top left"><ion-icon name="pause"></ion-icon></ion-fab>
-  </div>  
+    <ion-fab slot="top left" (click)="pauseGame()"><ion-icon name="pause"></ion-icon></ion-fab>
+    <div [class]="cannonClasses.join(' ')"></div>
+    <p class="score">Score: {{ score }}</p>
+  </div> 
+  <div class="dock">
+    
+  </div> 
 </ion-content>

@@ -4,15 +4,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
-import { CustomButtonComponent } from './../components/custom-button/custom-button.component';
+
+import { CustomModule } from '../custom.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab1Page }])
+    RouterModule.forChild([{ path: '', component: Tab1Page }]),
+    CustomModule
   ],
-  declarations: [Tab1Page,  CustomButtonComponent]
+  declarations: [Tab1Page]
 })
 export class Tab1PageModule {}

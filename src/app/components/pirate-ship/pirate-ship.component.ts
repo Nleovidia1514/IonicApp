@@ -7,33 +7,38 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class PirateShipComponent implements OnInit {
 
-  shipX: number = 0;
   classes: string[] = ['pirate-ship'];
   @Input('ship') ship;
   @Output('hit') hit = new EventEmitter<boolean>();
-  shipY: number = 100;
-  shipInterval;
+  @Input('shipsArray') ships: this[];
+  @Input('id') id: number;
+  shipX: number = 0;
+  shipY: number;
+  facing;
+  alive = true;
 
   constructor() { }
 
   ngOnInit() {
-    let facing = Math.floor(Math.random()*2) === 1 ? 'left' : 'right';
-    this.classes.push(facing);
-    if (facing === 'left') {
-      this.shipInterval = setInterval(() => {
+    this.ships.push(this);
+    this.facing = Math.floor(Math.random() * 2) === 1 ? 'left' : 'right';
+    this.shipY = (Math.random() * 230) + (window.innerHeight * 0.2);
+    if (this.facing === 'left') this.shipX = window.innerWidth;
+    this.classes.push(this.facing);
+  }
+
+  moveShip = () => {
+    if (this.alive) {
+      if (this.facing === 'right') {
         this.shipX += 2;
-      }, 16.666);
-    } else {
-      this.shipX = window.innerWidth;
-      this.shipInterval = setInterval(() => {    
+      } else {
         this.shipX -= 2;
-      }, 16.666);
+      }
     }
-    
   }
 
   killShip = () => {
-    clearInterval(this.shipInterval);
+    this.alive = false;
     this.classes.push('explosion');
   }
 
